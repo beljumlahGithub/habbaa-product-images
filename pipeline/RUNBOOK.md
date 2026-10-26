@@ -36,6 +36,12 @@ Load helpers in page:
 const code=await (await fetch('https://raw.githubusercontent.com/beljumlahGithub/habbaa-product-images/main/aplus/helpers.js?'+Date.now())).text(); (0,eval)(code);
 ```
 
+## Editor shortcuts (day 2+)
+- Load `aplus/helpers.js` then `aplus/hb2.js`; per content: `hb2Start(name)` → real-click coords → `hb2Step('dN',fam,1..3)` (each returns next coords) → `hb2Asins(list)` → `hb2Review()` → use `find` for the top "إرسال للموافقة" ref and then the modal's confirm ref (coordinates shift with viewport).
+- Alt texts come from `aplus/dN-alts.json`.
+- If validation fails ("فشل التحقق"), click "إصلاح المحتوى", read `hbErrors()`; fix copy, rebuild, push images as `-v2`, then in the module click "تعديل", click both small `x` in the dialog, drop new files (see hbReplace pattern in git history), click "إضافة".
+- Skip Saudi National Day / emblem / flag families (garbled emblem/shahada risk).
+
 ## Gotchas
 - Amazon.com shows a bot-check interstitial — do not bypass it; derive style from known US premium-brand patterns.
 - JS calls time out at 45 s; keep each call short. Don't trigger native dialogs (leaving the editor mid-edit can).
