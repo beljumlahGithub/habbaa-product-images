@@ -7,7 +7,7 @@ Owner: BJ (hello@beljumlah.sa). Standing instruction: do not ask him anything �
 - Only ASINs that appear in NO A+ content (any status, incl. drafts). Another account user (A2CUUBNFI4LBA4, "… Premium AR" names) runs A+ in parallel — never touch their content; re-check coverage right before attaching ASINs.
 - Only HABBAA-brand titles (A+ requires brand ownership).
 - Saudi Arabic, natural and error-free. No claims that are not in the listing (bullets/title). Skip sizes when the listing contradicts itself.
-- Amazon keyword filter blocks these substrings, also ACROSS word boundaries (check with spaces removed): `مص`, `كس`, `لعن`, `بز`, `ثدي`, `علق` (strip tashkeel too). Examples that fail: مصمم، مصاصة، مصنوع، الكسر، العنابي، بزوايا، "توصلك سليمة". `day1.py` aborts if any line contains them.
+- Amazon keyword filter blocks these substrings, also ACROSS word boundaries (check with spaces removed): `مص`, `كس`, `لعن`, `بز`, `ثدي`, `علق`, `هور` (strip tashkeel too). Amazon ALSO reads the text inside the images, so image copy must pass the same filter. Examples that fail: مصمم، مصاصة، مصنوع، الكسر، العنابي، بزوايا، "توصلك سليمة". `day1.py` aborts if any line contains them.
 - AI scenes must keep the product identical to the source photo. Reject any scene with misspelled/gibberish Latin text on products (letter balloons!), wrong material/colour, or extra products. Never use competitor images that carry another brand's text as a design base.
 - Content names end with `AR v2` (marks this pipeline's work).
 
