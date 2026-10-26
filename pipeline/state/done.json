@@ -32,5 +32,163 @@
    "saudi national day / emblem / flag items (risk of garbled shahada/emblem, emblem usage rules)"
   ],
   "asin_count": 50
+ },
+ "2026-10-26-c": {
+  "day": "d3",
+  "families": [
+   "mugs",
+   "party",
+   "dispo",
+   "gift",
+   "sew",
+   "office",
+   "nail",
+   "hair",
+   "bath",
+   "tools",
+   "car",
+   "gloves",
+   "kitchen",
+   "storage",
+   "cables"
+  ],
+  "asins": {
+   "mugs": [
+    "B0HP6SLZZ8",
+    "B0HP6R36YH",
+    "B0HP6V6Z4F",
+    "B0HP6SSPQJ",
+    "B0HP6S2DQK",
+    "B0FF3GZP1G",
+    "B0FDCMC14N"
+   ],
+   "party": [
+    "B0H25X4V4X",
+    "B0H1MVT38J",
+    "B0FDBM9XQ5",
+    "B0F7M2X98Z",
+    "B0F8BHKZF9",
+    "B0FDL662MK",
+    "B0G5QLXFQW",
+    "B0FD8ZJGWY"
+   ],
+   "dispo": [
+    "B0FGDVDPHW",
+    "B0F7LJDCGB",
+    "B0F7LJDKWW"
+   ],
+   "gift": [
+    "B0FDQM147K",
+    "B0FDKWNPTK",
+    "B0FDKSQXGY",
+    "B0FDGYS2LP",
+    "B0FDGXDVNM",
+    "B0FDGT2J69",
+    "B0FG8B62R9"
+   ],
+   "sew": [
+    "B0GYP9RKXB",
+    "B0GYPDP5Z8",
+    "B0GWY5G6J6",
+    "B0GWYB2T7X",
+    "B0GWXZY865",
+    "B0GWY5L5T2",
+    "B0GWYC4G5F",
+    "B0GWY3QRM6",
+    "B0GWYC8S6W",
+    "B0FR564WPW",
+    "B0DBJ7TC8F",
+    "B0FG3GWZ91"
+   ],
+   "office": [
+    "B0FLWLM63F",
+    "B0FF3MT24N",
+    "B0FF3PBJR3"
+   ],
+   "nail": [
+    "B0GWXTXTH8",
+    "B0GWY67TMZ",
+    "B0GRRYN7TY",
+    "B0GQZL5G3X",
+    "B0FLWLSJYL"
+   ],
+   "hair": [
+    "B0H1MT1KV5",
+    "B0GQZPR2PC",
+    "B0GQZG74CH",
+    "B0FLWNTG63",
+    "B0FG3FPQXL",
+    "B0FG3B3YXG",
+    "B0FM8FJ71Y"
+   ],
+   "bath": [
+    "B0FG3H82QY",
+    "B0FG3DHM98",
+    "B0DBMXFTD5",
+    "B0FFHG94Q7",
+    "B0H1NG1GGC",
+    "B0FLWNNF81",
+    "B0D9NZFQYB",
+    "B0D9P111PQ"
+   ],
+   "tools": [
+    "B0H1MSSNDD",
+    "B0FR4HBVZX",
+    "B0FR4NS5VQ",
+    "B0FR4V1HJF",
+    "B0FQ7FC7NB",
+    "B0FQ6PHCND",
+    "B0FDRFWZ29",
+    "B0FL166W67",
+    "B0FDQT3W73",
+    "B0FDQQY5DJ",
+    "B0FLWGMBG9"
+   ],
+   "car": [
+    "B0FNX5Z75G",
+    "B0FN4NWWK7",
+    "B0FN4LPXXV"
+   ],
+   "gloves": [
+    "B0FR562QLP",
+    "B0FFCBM1D9",
+    "B0FFC5XNPZ"
+   ],
+   "kitchen": [
+    "B0GS2QYDVV",
+    "B0GS2Z6JF8",
+    "B0GLG73KNJ",
+    "B0CKWJ5B8M",
+    "B0DBMRWFRY",
+    "B0DBLCRNDZ",
+    "B0DF94KNDH",
+    "B0DF94K1FD",
+    "B0CPJFMG9F"
+   ],
+   "storage": [
+    "B0GS2GZXN4",
+    "B0G546GRSG",
+    "B0CLSD6CHT",
+    "B0GWY96ZDV",
+    "B0GWYH1Y8Q",
+    "B0FVF9S7VF",
+    "B0FVFCGX8B",
+    "B0FVFCFGPX"
+   ],
+   "cables": [
+    "B0FVYHBF5T",
+    "B0FVYNQPW8",
+    "B0FVYHQTSF",
+    "B0FVYG6N43",
+    "B0FVY9CGHB",
+    "B0FVY2NSVT"
+   ]
+  },
+  "asin_count": 100,
+  "skipped_on_purpose": [
+   "third-party branded products in listing photos (STAEDTLER pencils B0FM8FBZC8,B0FM8HB22G,B0FM8GTWJR,B0FLWNQL8Y; XIAOMILI sharpeners B0GWXXSXVG,B0GWXXKJD9,B0GWY45ZMJ; NASIF eraser B0GWY3YT72; SAFARI tire kit B0FNX83V2J; branded gloves B0FLK9N576; TZ marker pack B0FR4NRL39; Star Decor bunting B0GXZFJDWM,B0FBLZMT5R,B0FBLYDBVD,B0FBLZ1M8Z)",
+   "IKEA-named listings (HILDEGN, STAD, BERGENS, SNOSKYFEL, TISK, BASTI, Fnis, Stodja, Kncis, Bevar, B0FL2*/B0FL1* generic IKEA items)",
+   "national day items"
+  ]
  }
 }

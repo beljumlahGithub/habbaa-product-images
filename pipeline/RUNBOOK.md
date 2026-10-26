@@ -7,7 +7,7 @@ Owner: BJ (hello@beljumlah.sa). Standing instruction: do not ask him anything �
 - Only ASINs that appear in NO A+ content (any status, incl. drafts). Another account user (A2CUUBNFI4LBA4, "… Premium AR" names) runs A+ in parallel — never touch their content; re-check coverage right before attaching ASINs.
 - Only HABBAA-brand titles (A+ requires brand ownership).
 - Saudi Arabic, natural and error-free. No claims that are not in the listing (bullets/title). Skip sizes when the listing contradicts itself.
-- Amazon keyword filter blocks these substrings, also ACROSS word boundaries (check with spaces removed): `مص`, `كس`, `لعن`, `بز`, `ثدي`, `علق`, `هور`, `جن` (strip tashkeel too). Amazon ALSO reads the text inside the images, so image copy must pass the same filter. Examples that fail: مصمم، مصاصة، مصنوع، الكسر، العنابي، بزوايا، "توصلك سليمة". `day1.py` aborts if any line contains them.
+- Amazon keyword filter blocks these substrings, also ACROSS word boundaries (check with spaces removed): `مص`, `كس`, `لعن`, `بز`, `ثدي`, `علق`, `هور`, `جن`, `نيك`, `لسبو`, `فوهة` (strip tashkeel too). Amazon ALSO reads the text inside the images, so image copy must pass the same filter. Examples that fail: لاتكس (use مطاط)، مانيكير (use أدوات أظافر)، السبورة (use اللوح الأبيض)، فوهة (use فتحة)، حجم صغير، للعناية/العناية، مصمم، مصاصة، مصنوع، الكسر، العنابي، بزوايا، "توصلك سليمة". `day1.py` aborts if any line contains them.
 - AI scenes must keep the product identical to the source photo. Reject any scene with misspelled/gibberish Latin text on products (letter balloons!), wrong material/colour, or extra products. Never use competitor images that carry another brand's text as a design base.
 - Content names end with `AR v2` (marks this pipeline's work).
 
@@ -41,6 +41,15 @@ const code=await (await fetch('https://raw.githubusercontent.com/beljumlahGithub
 - Alt texts come from `aplus/dN-alts.json`.
 - If validation fails ("فشل التحقق"), click "إصلاح المحتوى", read `hbErrors()`; fix copy, rebuild, push images as `-v2`, then in the module click "تعديل", click both small `x` in the dialog, drop new files (see hbReplace pattern in git history), click "إضافة".
 - Skip Saudi National Day / emblem / flag families (garbled emblem/shahada risk).
+
+## Batch-3 lessons
+- Category-level contents work: group small families by category (e.g. kitchen gadgets, storage) — one content per category, tiles show different products.
+- Before using a product, look at its listing photo: skip items whose product/packaging shows another brand (Staedtler, IKEA names, Safari, Xiaomili, Star Decor...). HABBAA A+ must not sit on another brand's product.
+- AI scenes: check for car badges / laptop logos; pick the hero variant without them.
+- After every submit, verify the green banner "تم إرسال المحتوى ... بنجاح" (or English "successfully submitted"); a missed confirm click leaves a silent draft. Re-check ListContentMetadata ~1 min later: status goes draft → approved.
+- If Seller Central switches to English (new tab group), add `?mons_sel_locale=ar_AE` to the editor URL so the Arabic helpers work.
+- Replace images in a draft: module "تعديل/Edit" → both small x → `hbRep(name)` drag-drop (see aplus/hb2 usage in session) → retype alt with real triple-click + ctrl+a + type (alt fields are shadow inputs) → "إضافة/Add".
+- `photo='pad'` in features() pads white-background product photos instead of cropping.
 
 ## Gotchas
 - Amazon.com shows a bot-check interstitial — do not bypass it; derive style from known US premium-brand patterns.
