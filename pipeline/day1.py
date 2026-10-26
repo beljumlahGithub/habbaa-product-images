@@ -1,6 +1,6 @@
 import os, sys, json
 sys.path.insert(0, os.path.dirname(__file__))
-os.environ.setdefault('HB_FONTS', '/home/claude/fonts')
+os.environ.setdefault('HB_FONTS', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fonts'))
 import aplus_lib as L
 from PIL import Image
 
