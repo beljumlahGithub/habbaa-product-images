@@ -168,9 +168,10 @@ def uses(tiles, title, out):
     m.save(out + '-mobile.jpg', quality=92)
 
 
-def _photo(canvas, path, box, rad):
+def _photo(canvas, path, box, rad, pad=False):
     x, y, w, h = box
-    im = cover(Image.open(path).convert('RGB'), w, h)
+    src = Image.open(path).convert('RGB')
+    im = ImageOps.pad(src, (w, h), color=(255, 255, 255)) if pad else cover(src, w, h)
     mk = Image.new('L', (w, h), 0)
     ImageDraw.Draw(mk).rounded_rectangle((0, 0, w, h), rad, fill=255)
     canvas.paste(im, (x, y), mk)
@@ -180,7 +181,7 @@ def features(prod_path, title, feats, out, thr=236, photo=False):
     """feats: list of 3-4 (title, subtitle). photo=True: framed photo instead of cutout (white products)."""
     c = Image.new('RGB', (DW, DH), (244, 241, 236))
     if photo:
-        _photo(c, prod_path, (80, 50, 620, 500), 22)
+        _photo(c, prod_path, (80, 50, 620, 500), 22, pad=(photo == 'pad'))
     else:
         prod, mask = cutout(prod_path, thr)
         paste_shadowed(c, prod, mask, (110, 50, 600, 500))
@@ -196,7 +197,7 @@ def features(prod_path, title, feats, out, thr=236, photo=False):
     c.save(out + '-desktop.jpg', quality=92)
     m = Image.new('RGB', (MW, MH), (244, 241, 236))
     if photo:
-        _photo(m, prod_path, (16, 80, 220, 330), 14)
+        _photo(m, prod_path, (16, 80, 220, 330), 14, pad=(photo == 'pad'))
     else:
         paste_shadowed(m, prod, mask, (14, 70, 230, 330))
     d = ImageDraw.Draw(m)
