@@ -75,12 +75,19 @@ def paste_shadowed(canvas, prod, mask, box):
     canvas.paste(pr, (ox, oy), mr)
 
 
-def hero(src, head, sub, out, mirror=False, brand='HABBAA', ax=0.5):
+def hero(src, head, sub, out, mirror=False, brand='HABBAA', ax=0.5, panel=False):
     """head: list of 1-2 lines, sub: list of 1-2 lines. Text on the RIGHT (product must be left)."""
     im = Image.open(src).convert('RGB')
     if mirror:
         im = ImageOps.mirror(im)
     h = cover(im, DW, DH, ax)
+    if panel:
+        g = Image.new('L', (DW, DH), 0)
+        gd = ImageDraw.Draw(g)
+        x0 = DW - 820
+        for x in range(x0, DW):
+            gd.line([(x, 0), (x, DH)], fill=int(min(1, (x - x0) / 220) * 235))
+        h.paste(Image.new('RGB', (DW, DH), (248, 246, 242)), (0, 0), g)
     d = ImageDraw.Draw(h)
     xr = DW - 90
     maxw = 640
