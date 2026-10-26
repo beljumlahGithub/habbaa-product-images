@@ -1,6 +1,6 @@
 from content5 import C
-END_EN = "Every HABBAA order is checked before shipping so it reaches you in excellent condition. If you have any question about size, quantity or use, contact us through Amazon and our team will be happy to help. HABBAA offers practical, quality everyday products for homes, offices and businesses. Order today and enjoy fast delivery with Amazon."
-END_AR = "كل طلب من هبة HABBAA نتأكد منه قبل الشحن عشان يوصلك بحالة ممتازة. وإذا عندك أي سؤال عن المقاس أو الكمية أو طريقة الاستخدام، تواصل معنا عن طريق أمازون وفريقنا يسعد يساعدك. هبة HABBAA تقدم منتجات يومية عملية وبجودة عالية للبيوت والمكاتب والأعمال. اطلبه الحين واستمتع بالتوصيل السريع مع أمازون."
+END_EN = "Every HABBAA order is checked before shipping so it reaches you in excellent condition. If you have any question about size, quantity or use, contact us through Amazon and our team will be happy to help. HABBAA offers practical, quality everyday products for homes, offices and businesses."
+END_AR = "كل طلب من هبة HABBAA نتأكد منه قبل الشحن عشان يوصلك بحالة ممتازة. وإذا عندك أي سؤال عن المقاس أو الكمية أو طريقة الاستخدام، تواصل معنا عن طريق أمازون وفريقنا يسعد يساعدك. هبة HABBAA تقدم منتجات يومية عملية وبجودة عالية للبيوت والمكاتب والأعمال."
 def b2s(b, ar):
     if ':' in b:
         h, r = b.split(':', 1); r = r.strip()
