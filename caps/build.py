@@ -10,10 +10,10 @@ def col(p):
     m=[v for k,v in I.items() if k.startswith(p)]; assert m,p; return m[0]
 C=dict(t=col('item_name'),d=col('product_description'),k=col('generic_keyword'),br=col('brand['),
        color=col('color[marketplace_id=A17E79C6D8DWNP][language_tag=ar_AE]#1.value'),coo=col('country_of_origin'),
-       bat=col('batteries_required'),dg=col('supplier_declared_dg_hz_regulation[marketplace_id=A17E79C6D8DWNP]#1'))
+       bat=col('batteries_required'),fab=col('fabric_type'),dg=col('supplier_declared_dg_hz_regulation[marketplace_id=A17E79C6D8DWNP]#1'))
 CB=[col(f'bullet_point[marketplace_id=A17E79C6D8DWNP][language_tag=ar_AE]#{i}') for i in range(1,6)]
 FAM=[
- ('HABBAA-CAP6P-PARENT', H['HM-BM1G-8R5C'], None,
+ ('HABBAA-CAP6P-PARENT', H['HM-BM1G-8R5C'], 'الصين',
   [('XC-TNHL-TKNV','كحلي'),('HM-BM1G-8R5C','أبيض'),('6O-PICR-B8WS','أزرق'),('0D-OTGX-1FLH','أسود')]),
  ('HABBAA-CAPSAT-PARENT', H3['FC-C8Y3-2PL0'], 'الصين',
   [('FC-C8Y3-2PL0','أبيض بحافة كحلي'),('RM-C3D3-X8UX','أبيض بحافة زرقاء'),('LN-DBV6-GXMZ','أبيض بحافة عنابي')]),
@@ -31,6 +31,7 @@ for psku,ref,coo,kids in FAM:
     for c in CB: ws.cell(r,c).value=ref[c-1]
     ws.cell(r,C['br']).value='HABBAA'
     if coo: ws.cell(r,C['coo']).value=coo
+    ws.cell(r,C['fab']).value='قطن' if 'CAP6P' in psku else 'ساتان'
     ws.cell(r,C['bat']).value='لا'; ws.cell(r,C['dg']).value='غير قابل للتطبيق'
     out.append((psku,bt)); r+=1
     for sku,colr in kids:
