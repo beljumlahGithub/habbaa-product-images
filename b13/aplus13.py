@@ -68,7 +68,7 @@ def rng(items, title, out):
 
 FAM = {
  'party6': dict(
-   asins=['B0F8QNPM1P','B0F8QPWV7N','B0F8R15B25','B0F8BT4ZV3','B0F8BYDPMQ','B0F92L9BRL','B0DBGQB5F8','B0F92JLG8X','B0DZW2DWYW'],
+   asins=['B0F8QNPM1P','B0F8QPWV7N','B0F8R15B25','B0F8BT4ZV3','B0F8BYDPMQ','B0F92L9BRL','B0DBGQB5F8','B0F92JLG8X','B0DZW2DWYW','B0F92K2Z5Z'],
    hero=(life('party_hL'), ['لحظة الفرحة', 'تكمل بالتفاصيل'],
          ['قصاصات ملونة وإضاءة وشموع وأدوات تقديم', 'لتزيين الحفلات والجمعات العائلية']),
    uses=('لكل مناسبة حلوة', [(f'{B}/src/61Tt4fgUqKL.jpg', 'لحظة الاحتفال'), (f'{B}/src/51e8nUtWulL.jpg', 'إضاءة المكان'),
@@ -88,17 +88,17 @@ FAM = {
    alt=['أكواب HABBAA الورقية السوداء مع أسياخ شوي في مقهى', 'استخدامات منتجات HABBAA في المطبخ',
         'تشكيلة HABBAA من أدوات المطبخ والتقديم']),
  'care6': dict(
-   asins=['B0FLWNJ3PP','B0FM8G7CQF','B0FG8J75LY','B0FG8KFP9V','B0F8BK72JT','B0F8BKVSB7','B0F89C1Z8P','B0F897XCMT','B0F895WVVJ','B0F89632K9','B0F898LDN1','B0F89CPY65','B0F899JT2L','B0F895NGZL','B0F7Y4BGL2'],
+   asins=['B0FLWNJ3PP','B0FM8G7CQF','B0FG8J75LY','B0FG8KFP9V','B0F8BK72JT','B0F8BKVSB7','B0F89C1Z8P','B0F897XCMT','B0F895WVVJ','B0F89632K9','B0F895NGZL','B0F7Y4BGL2','B0F894VNJ3'],
    hero=(life('care_hL'), ['روتينك اليومي', 'أسهل وأرتب'],
-         ['بخاخات شعر وفوط تجفيف وأمشاط وأقنعة نوم', 'للحمام والسفر والعناية اليومية']),
+         ['بخاخات شعر وفوط تجفيف وأقنعة نوم ومرايا', 'للحمام والسفر والعناية اليومية']),
    uses=('عناية لكل وقت', [(f'{B}/src/71AlIzEuhpL.jpg', 'تجفيف الشعر'), (f'{B}/srcup/31hRy1Sd4YL.jpg', 'وقت النوم'),
-                          (f'{B}/src/61WfZON9Z3L.jpg', 'تسريح الشعر'), (f'{B}/src/41uNaoNKtHL.jpg', 'المكياج')]),
+                          (f'{B}/src/51jDkwa-iQL.jpg', 'ترطيب الشعر'), (f'{B}/src/41uNaoNKtHL.jpg', 'المكياج')]),
    rng=('تشكيلة HABBAA للعناية', [('B0FLWNJ3PP', 'بخاخ شعر 250 مل'), ('B0FG8KFP9V', 'قبعة تجفيف الشعر'),
-                                ('B0F89CPY65', 'مشط خشبي'), ('B0F7Y4BGL2', 'مرآة مكياج صغيرة')]),
+                                ('B0F895NGZL', 'مروحة يد قابلة للطي'), ('B0F7Y4BGL2', 'مرآة مكياج صغيرة')]),
    alt=['بخاخ شعر HABBAA وقبعة تجفيف على رخام الحمام', 'استخدامات منتجات HABBAA للعناية',
         'تشكيلة HABBAA من أدوات العناية']),
  'home6': dict(
-   asins=['B0F8QGZFXL','B0F8QBH86Z','B0F8P1V9NZ','B0F8BNDDPH','B0F8BPT7XB','B0F7Y3ZPLV','B0CHK6LPDN','B0CHWNSBLM'],
+   asins=['B0F8QGZFXL','B0F8QBH86Z','B0F8P1V9NZ','B0F8BNDDPH','B0F8BPT7XB','B0F7Y3ZPLV','B0CHK6LPDN','B0CHWNSBLM','B0F8QMQ58R'],
    hero=(life('home_hL'), ['يومك أسهل', 'في البيت والطريق'],
          ['مظلة شفافة وأدوات بيت وسيارة', 'لاستخدام يومي عملي']),
    uses=('لكل يوم', [(f'{B}/src/61zSTo+IO-L.jpg', 'تنظيف السيارة'), (f'{B}/src/816zoJ8-dzL.jpg', 'أرضية البيت'),
