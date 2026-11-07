@@ -83,8 +83,8 @@ FAM = {
          ['أكياس هدايا ورقية بمقابض مجدولة', 'وشموع أرقام للكيك']),
    uses=('لكل مناسبة', [(f'{B}/src/bag_brown.jpg', 'تغليف الهدايا'), (f'{B}/life/party_t1.jpg', 'هدايا الحفلات'),
                        (f'{B}/life/party_t2.jpg', 'توزيعات المناسبات'), (f'{B}/life/party_t3.jpg', 'أكياس للمتاجر')]),
-   rng=None,
-   alt=['أكياس هدايا ورقية بلون بني وكحلي وأحمر بجانب كيكة', 'استخدامات أكياس الهدايا الورقية من HABBAA']),
+   rng=None, feat2=(f'{B}/life/party_b2.png', ['ألوان متعددة', 'تناسب كل ذوق'], ['أكياس هدايا بألوان مختلفة', 'وشموع أرقام وردية وزرقاء']),
+   alt=['أكياس هدايا ورقية بلون بني وكحلي وأحمر بجانب كيكة', 'استخدامات أكياس الهدايا الورقية من HABBAA', 'أكياس هدايا ورقية من HABBAA بألوان مختلفة']),
 }
 
 if __name__ == '__main__':
@@ -96,6 +96,9 @@ if __name__ == '__main__':
         hero(f['hero'][0], f['hero'][1], f['hero'][2], f'{O}/d17-{k}-1-hero')
         L.uses(f['uses'][1], f['uses'][0], f'{O}/d17-{k}-2-uses')
         if f['rng']: rng(f['rng'][1], f['rng'][0], f'{O}/d17-{k}-3-feat')
+        else:
+            for z in f['feat2'][1]+f['feat2'][2]: check(z)
+            hero(f['feat2'][0], f['feat2'][1], f['feat2'][2], f'{O}/d17-{k}-3-feat')
         alts[k] = f['alt']
     json.dump(alts, open(f'{O}/d17-alts.json', 'w'), ensure_ascii=False)
     json.dump({k: f['asins'] for k, f in FAM.items()}, open(f'{O}/d17-asins.json', 'w'))
