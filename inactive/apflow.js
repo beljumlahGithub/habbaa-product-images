@@ -52,6 +52,25 @@ window.__apFlow = window.__apFlow || {};
     const t0 = w.document.body.innerText;
     return 'submitclicked confirms=' + c.length + ' ' + (/بنجاح|successfully/.test(t0) ? 'SUCCESS' : '');
   };
+  F.replace = async (idx, d, m, alt) => {
+    const w = window.__f2;
+    const kbs = w.hbAll('kat-button').filter(e => e.offsetWidth > 0 && /^(تعديل)$/.test((e.textContent || e.getAttribute('label') || '').trim()));
+    const kb = kbs[idx]; if (!kb) return 'noedit ' + kbs.length; kb.scrollIntoView({ block: 'center' }); await sl(400);
+    (kb.shadowRoot && kb.shadowRoot.querySelector('button') || kb).click(); await sl(2200);
+    const As = [...w.document.querySelectorAll('a')].filter(a => /سحب الصورة/.test(a.textContent) && a.offsetWidth > 0); if (As.length < 2) return 'nodialog';
+    let dlg = As[0]; for (let i = 0; i < 12 && dlg && !/إضافة صورة/.test(dlg.innerText || ''); i++) dlg = dlg.parentElement;
+    if (!dlg) return 'nodlg';
+    const xs = [...dlg.querySelectorAll('*')].filter(e => e.offsetWidth > 0 && e.offsetWidth < 40 && /^(×|x|X|✕)$/.test((e.textContent || '').trim()) && dlg.contains(e));
+    // only the small x on image previews (not the dialog close): those sit inside the image boxes, near the drop links
+    const imgX = xs.filter(x => { const r = x.getBoundingClientRect(); return As.some(a => { const q = a.getBoundingClientRect(); return Math.abs(r.top - q.top) < 260 && r.top > q.top - 260 && Math.abs(r.left - q.left) < 900 }) });
+    imgX.slice(0, 2).forEach(x => x.click()); await sl(1500);
+    const As2 = [...w.document.querySelectorAll('a')].filter(a => /سحب الصورة/.test(a.textContent) && a.offsetWidth > 0);
+    const dz = As2.find(a => a.offsetWidth > 500) || As2[0], mz = As2.find(a => a.offsetWidth < 400) || As2[1];
+    const drop = (el, b, nm) => { const f = new w.File([b], nm, { type: 'image/jpeg' }); const dt = new w.DataTransfer(); dt.items.add(f); for (const t of ['dragenter', 'dragover', 'drop']) el.dispatchEvent(new w.DragEvent(t, { bubbles: true, cancelable: true, dataTransfer: dt })) };
+    drop(dz, d, 'd' + Date.now() + '.jpg'); await sl(700); drop(mz, m, 'm' + Date.now() + '.jpg'); await sl(6500);
+    const add = w.hbAll('button,kat-button').filter(x => x.textContent.trim() === 'إضافة' && x.offsetWidth > 0); if (!add.length) return 'noadd ' + imgX.length; add[0].click(); await sl(2500);
+    return [...w.document.querySelectorAll('a')].filter(a => /سحب الصورة/.test(a.textContent) && a.offsetWidth > 0).length ? 'dialog still open' : 'ok x' + imgX.length;
+  };
   F.confirm = async () => {
     const w = window.__f2; const c = w.hbAll('button,kat-button').filter(e => e.offsetWidth > 0 && /^(إرسال|تأكيد|إرسال للموافقة)$/.test((e.textContent || e.getAttribute('label') || '').trim())).pop();
     if (!c) return 'noconfirm'; if (!react(w, c)) (c.shadowRoot && c.shadowRoot.querySelector('button') || c).click(); await sl(7000);
