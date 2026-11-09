@@ -64,18 +64,19 @@ window.__apFlow = window.__apFlow || {};
     const w = window.__f2;
     const kbs = w.hbAll('kat-button').filter(e => e.offsetWidth > 0 && /^(تعديل)$/.test((e.textContent || e.getAttribute('label') || '').trim()));
     const kb = kbs[idx]; if (!kb) return 'noedit ' + kbs.length; kb.scrollIntoView({ block: 'center' }); await sl(400);
-    (kb.shadowRoot && kb.shadowRoot.querySelector('button') || kb).click(); let As = [];
-    for (let i = 0; i < 12 && As.length < 2; i++) { await sl(800); As = [...w.document.querySelectorAll('a')].filter(a => /سحب الصورة/.test(a.textContent) && a.offsetWidth > 0) } if (As.length < 2) return 'nodialog';
-    let dlg = As[0]; for (let i = 0; i < 12 && dlg && !/إضافة صورة/.test(dlg.innerText || ''); i++) dlg = dlg.parentElement;
-    if (!dlg) return 'nodlg';
-    const imgX = w.hbAll('*').filter(e => e.offsetWidth > 0 && e.offsetWidth < 40 && e.children.length === 0 && /^(x|X)$/.test((e.textContent || '').trim()));
-    imgX.slice(0, 2).forEach(x => x.click()); await sl(1500);
-    const As2 = [...w.document.querySelectorAll('a')].filter(a => /سحب الصورة/.test(a.textContent) && a.offsetWidth > 0);
-    const dz = As2.find(a => a.offsetWidth > 500) || As2[0], mz = As2.find(a => a.offsetWidth < 400) || As2[1];
+    (kb.shadowRoot && kb.shadowRoot.querySelector('button') || kb).click();
+    let xs = [];
+    for (let i = 0; i < 15 && xs.length < 2; i++) { await sl(700); xs = w.hbAll('*').filter(e => e.offsetWidth > 0 && e.offsetWidth < 40 && e.children.length === 0 && /^(x|X)$/.test((e.textContent || '').trim())) }
+    if (xs.length < 2) return 'nox ' + xs.length;
+    xs.slice(0, 2).forEach(x => x.click());
+    let As = []; for (let i = 0; i < 10 && As.length < 2; i++) { await sl(700); As = [...w.document.querySelectorAll('a')].filter(a => /سحب الصورة/.test(a.textContent) && a.offsetWidth > 0) }
+    if (As.length < 2) return 'nodz';
+    const dz = As.find(a => a.offsetWidth > 500) || As[0], mz = As.find(a => a.offsetWidth < 400) || As[1];
     const drop = (el, b, nm) => { const f = new w.File([b], nm, { type: 'image/jpeg' }); const dt = new w.DataTransfer(); dt.items.add(f); for (const t of ['dragenter', 'dragover', 'drop']) el.dispatchEvent(new w.DragEvent(t, { bubbles: true, cancelable: true, dataTransfer: dt })) };
     drop(dz, d, 'd' + Date.now() + '.jpg'); await sl(700); drop(mz, m, 'm' + Date.now() + '.jpg'); await sl(6500);
-    const add = w.hbAll('button,kat-button').filter(x => x.textContent.trim() === 'إضافة' && x.offsetWidth > 0); if (!add.length) return 'noadd ' + imgX.length; add[0].click(); await sl(2500);
-    return [...w.document.querySelectorAll('a')].filter(a => /سحب الصورة/.test(a.textContent) && a.offsetWidth > 0).length ? 'dialog still open' : 'ok x' + imgX.length;
+    const ins = w.hbAll('input').filter(e => /النص البديل/.test(e.placeholder || '') && e.offsetWidth > 0); ins.forEach(e => w.hbType(e, alt)); await sl(400);
+    const add = w.hbAll('button,kat-button').filter(x => x.textContent.trim() === 'إضافة' && x.offsetWidth > 0); if (!add.length) return 'noadd'; add[0].click(); await sl(2500);
+    return [...w.document.querySelectorAll('a')].filter(a => /سحب الصورة/.test(a.textContent) && a.offsetWidth > 0).length ? 'dialog still open' : 'ok';
   };
   F.confirm = async () => {
     const w = window.__f2; const c = w.hbAll('button,kat-button').filter(e => e.offsetWidth > 0 && /^(إرسال|تأكيد|إرسال للموافقة)$/.test((e.textContent || e.getAttribute('label') || '').trim())).pop();
