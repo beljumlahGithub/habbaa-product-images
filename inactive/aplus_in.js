@@ -33,13 +33,13 @@ window.__AP = window.__AP || {};
   // hero: products left, text right
   P.hero = async (cat, ims) => {
     const [d, x] = cv(1464, 600, C.bg); rr(x, 0, 0, 1464, 600, 0, C.bg);
-    rr(x, 30, 30, 760, 540, 30, C.white); const n = Math.min(3, ims.length);
-    if (n == 1) place(x, ims[0], 60, 60, 700, 480); else for (let i = 0; i < n; i++) place(x, ims[i], 50 + i * (720 / n), 80, 720 / n - 20, 440);
-    logo(x, 1410, 50, 80); rt(x, cat.h, 1410, 250, 54, 800, C.ink); rt(x, cat.s, 1410, 320, 32, 400, C.sub); x.fillStyle = C.acc; x.fillRect(1410 - 140, 350, 140, 6);
+    rr(x, 30, 30, 700, 540, 30, C.white); const n = Math.min(3, ims.length);
+    if (n == 1) place(x, ims[0], 60, 60, 640, 480); else for (let i = 0; i < n; i++) place(x, ims[i], 50 + i * (660 / n), 80, 660 / n - 20, 440);
+    logo(x, 1410, 50, 80); let fs = 54; x.font = font(800, fs); while (x.measureText(cat.h).width > 640 && fs > 34) { fs -= 2; x.font = font(800, fs) } rt(x, cat.h, 1410, 250, fs, 800, C.ink); rt(x, cat.s, 1410, 320, 32, 400, C.sub); x.fillStyle = C.acc; x.fillRect(1410 - 140, 350, 140, 6);
     rt(x, 'منتجات مختارة بعناية من هبة', 1410, 430, 28, 400, C.teal);
     const [m, y] = cv(600, 450, C.bg); rr(y, 20, 150, 560, 280, 24, C.white);
     if (n == 1) place(y, ims[0], 40, 165, 520, 250); else for (let i = 0; i < n; i++) place(y, ims[i], 30 + i * (540 / n), 170, 540 / n - 10, 240);
-    logo(y, 570, 15, 44); rt(y, cat.h, 570, 105, 30, 800, C.ink); rt(y, cat.s, 570, 138, 20, 400, C.sub);
+    logo(y, 570, 15, 44); let ms = 30; y.font = font(800, ms); while (y.measureText(cat.h).width > 540 && ms > 18) { ms -= 1; y.font = font(800, ms) } rt(y, cat.h, 570, 105, ms, 800, C.ink); rt(y, cat.s, 570, 138, 20, 400, C.sub);
     return [await blob(d), await blob(m)];
   };
   // uses: 4 tiles with product photos + short names
