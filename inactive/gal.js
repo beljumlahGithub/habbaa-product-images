@@ -53,7 +53,7 @@ window.__G = window.__G || {};
   };
   G.glance = async (bm, rtl, sub, boxLine) => {
     const [c, x] = canvas(); header(x, rtl, rtl ? 'لمحة سريعة' : 'At a Glance', sub);
-    rr(x, 70, 340, S - 140, 1240, 44, PANEL); G.place(x, bm, 120, 380, S - 240, 1160);
+    const H = boxLine ? 1240 : 1580; rr(x, 70, 340, S - 140, H, 44, PANEL); G.place(x, bm, 120, 380, S - 240, H - 80);
     if (boxLine) {
       rr(x, 70, 1640, S - 140, 260, 44, null, ACC); x.direction = rtl ? 'rtl' : 'ltr'; x.textAlign = 'center';
       x.fillStyle = ACC; x.font = font(700, 40); x.fillText(rtl ? 'محتويات العبوة' : 'In the box', S / 2, 1730);
@@ -82,13 +82,38 @@ window.__G = window.__G || {};
     const n = m[1]; if (+n < 2 || +n > 5000) return '';
     return rtl ? ('عبوة من ' + n + (m[2] ? ' ' + m[2] : ' قطع')) : ('Pack of ' + n);
   };
-  G.make = async (imgUrl, title, bullets, lang) => {
+  G.sent = (d) => String(d || '').replace(/<[^>]+>/g, ' ').split(/(?<=[.!؟?])\s+/).map(s => s.trim()).filter(s => s.length > 25 && s.length < 220);
+  G.make = async (imgUrl, title, bullets, lang, desc) => {
     const rtl = /^ar/.test(lang); const bm = await G.loadImg(imgUrl); const sub = G.short(title); const B = bullets.map(G.cleanB).filter(Boolean);
     if (B.length < 3) throw 'fewbullets';
     const f = await G.features(bm, rtl, sub, B.slice(0, 4));
     const g = await G.glance(bm, rtl, sub, G.boxLine(title, rtl));
-    const d = await G.details(bm, rtl, sub, B.slice(Math.min(2, B.length - 3)).slice(0, 4));
+    const used = new Set(B.slice(0, 4));
+    let rows = [...B.slice(4), ...G.sent(desc)].filter(r => !used.has(r));
+    const seen = new Set(); rows = rows.filter(r => { const k = r.slice(0, 30); if (seen.has(k)) return false; seen.add(k); return true });
+    if (rows.length < 2) rows = B.slice(0, 3);
+    const d = await G.details(bm, rtl, sub, rows.slice(0, 4));
     return [f, g, d];
+  };
+  // upload blobs into empty PT slots on the classic images page, one save
+  G.upload = async (a, sku, blobs) => {
+    const w = window.__f1; const sl = ms => new Promise(r => setTimeout(r, ms));
+    const before = await __getImgs(a, sku); const free = ['PT01','PT02','PT03','PT04','PT05','PT06','PT07','PT08'].filter(k => !before[k]);
+    if (free.length < 1) return 'NOSLOT';
+    w.location.href = '/abis/listing/edit/images?sku=' + encodeURIComponent(sku) + '&asin=' + a + '&reduceVariationAttributes=true&skipRedesign=true';
+    await sl(3000); let ok = false;
+    for (let i = 0; i < 60 && !ok; i++) { await sl(700); try { if (w.location.search.includes(a)) { ok = !!w.document.getElementById('ProductImage_' + free[0] + '-input_input'); const lk = w.document.getElementById('images-link'); if (!ok && lk && i % 5 == 2) lk.click() } } catch (e) {} }
+    if (!ok) return 'NOINPUT'; await sl(1500);
+    const n = Math.min(free.length, blobs.length);
+    for (let i = 0; i < n; i++) {
+      const inp = w.document.getElementById('ProductImage_' + free[i] + '-input_input');
+      const f = new w.File([blobs[i]], a + '-' + free[i] + '-' + Date.now() + '.jpg', { type: 'image/jpeg' });
+      const dt = new w.DataTransfer(); dt.items.add(f); inp.files = dt.files; inp.dispatchEvent(new w.Event('change', { bubbles: true })); await sl(4500);
+    }
+    await sl(2000);
+    const bs = [...w.document.querySelectorAll('#EditSaveAction')]; const btn = bs.find(e => e.getBoundingClientRect().width > 0) || bs[bs.length - 1];
+    if (!btn) return 'NOBTN'; btn.scrollIntoView({ block: 'center' }); await sl(600); (btn.shadowRoot && btn.shadowRoot.querySelector('button') || btn).click();
+    for (let i = 0; i < 10; i++) { await sl(4000); const now = await __getImgs(a, sku); const added = free.slice(0, n).filter(k => now[k]).length; if (added >= n) return 'OK ' + added; if (i == 9) return 'PARTIAL ' + added + '/' + n }
   };
 })();
 'gal ok';
