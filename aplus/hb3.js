@@ -1,0 +1,6 @@
+// HABBAA Premium A+ "Pro" (5 modules). Needs helpers.js loaded first.
+window.HB3_MODS=['1-hero','2-feat','3-steps','4-uses','5-specs'];
+window.hb3Start=async function(name){hbType(hb2Name(),name);await hbSleep(400);return await hbAddModule('صورة كاملة','صورة كاملة لنظام Premium')};
+window.hb3Step=async function(fam,n){const alts=await (await fetch(HB_BASE+'pro/alts.json?'+Date.now())).json();const ph=hbAll('*').filter(e=>e.children.length===0&&/الضغط لإضافة صورة/.test(e.textContent)&&e.offsetWidth>0);if(ph.length!==1)return 'ph '+ph.length;const r=await hbImg(ph[0],'pro/'+fam+'-'+HB3_MODS[n-1],alts[fam][n-1]);if(r!=='ok')return 'img '+r;if(n<5)return 'ok '+JSON.stringify(await hbAddModule('صورة كاملة','صورة كاملة لنظام Premium'));return 'ok mods '+hbAll('*').filter(e=>e.children.length===0&&e.textContent.trim()==='صورة كاملة لنظام Premium'&&e.offsetWidth>0).length};
+window.hb3Asins=async function(list){await hbClickText('التالي: تطبيق أرقام ASIN');await hbSleep(7000);const e=hbErrors();if(e.length)return 'ERR '+JSON.stringify(e);await hbAsins(list);await hbSleep(7000);const t=document.querySelector('main').innerText;return (t.match(/عدد ASIN المطبق عليها \(\d+\)/)||[''])[0]+' | errs '+(t.match(/خطأ \(/g)||[]).length};
+'hb3 loaded';
