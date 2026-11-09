@@ -60,9 +60,7 @@ window.__apFlow = window.__apFlow || {};
     for (let i = 0; i < 12 && As.length < 2; i++) { await sl(800); As = [...w.document.querySelectorAll('a')].filter(a => /سحب الصورة/.test(a.textContent) && a.offsetWidth > 0) } if (As.length < 2) return 'nodialog';
     let dlg = As[0]; for (let i = 0; i < 12 && dlg && !/إضافة صورة/.test(dlg.innerText || ''); i++) dlg = dlg.parentElement;
     if (!dlg) return 'nodlg';
-    const xs = [...dlg.querySelectorAll('*')].filter(e => e.offsetWidth > 0 && e.offsetWidth < 40 && /^(×|x|X|✕)$/.test((e.textContent || '').trim()) && dlg.contains(e));
-    // only the small x on image previews (not the dialog close): those sit inside the image boxes, near the drop links
-    const imgX = xs.filter(x => { const r = x.getBoundingClientRect(); return As.some(a => { const q = a.getBoundingClientRect(); return Math.abs(r.top - q.top) < 260 && r.top > q.top - 260 && Math.abs(r.left - q.left) < 900 }) });
+    const imgX = w.hbAll('*').filter(e => e.offsetWidth > 0 && e.offsetWidth < 40 && e.children.length === 0 && /^(x|X)$/.test((e.textContent || '').trim()));
     imgX.slice(0, 2).forEach(x => x.click()); await sl(1500);
     const As2 = [...w.document.querySelectorAll('a')].filter(a => /سحب الصورة/.test(a.textContent) && a.offsetWidth > 0);
     const dz = As2.find(a => a.offsetWidth > 500) || As2[0], mz = As2.find(a => a.offsetWidth < 400) || As2[1];
