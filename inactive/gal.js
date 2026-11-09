@@ -130,11 +130,19 @@ window.__G = window.__G || {};
   };
   G.save = async (w, btn, n) => {
     const sl = ms => new Promise(r => setTimeout(r, ms));
-    const k = Object.keys(btn).find(k => k.startsWith('__reactEventHandlers') || k.startsWith('__reactProps'));
-    if (k && btn[k].onClick) btn[k].onClick({ preventDefault() {}, stopPropagation() {}, target: btn, currentTarget: btn, nativeEvent: new w.MouseEvent('click'), persist() {} });
-    else (btn.shadowRoot && btn.shadowRoot.querySelector('button') || btn).click();
-    for (let i = 0; i < 40; i++) { await sl(1000); const t = w.document.body.innerText; if (/Changes submitted/.test(t)) return 'OK ' + n; if (/There (was|were) (a |an )?(problem|error)|failed|could not/i.test(t)) return 'ERR ' + (t.match(/.{0,80}(problem|error|failed|could not).{0,100}/i) || [''])[0] }
-    return 'NOCONFIRM';
+    const net = []; try { const X = w.XMLHttpRequest.prototype; if (!X.__hbh) { X.__hbh = 1; const oo = X.open, os = X.send; X.open = function (m, u) { this.__m = m; this.__u = String(u); return oo.apply(this, arguments) }; X.send = function (b) { this.addEventListener('loadend', () => { (w.__NET = w.__NET || []).push([this.__m, this.__u, this.status]) }); return os.apply(this, arguments) } } } catch (e) {}
+    w.__NET = [];
+    const fire = () => { const k = Object.keys(btn).find(k => k.startsWith('__reactEventHandlers') || k.startsWith('__reactProps')); if (k && btn[k].onClick) btn[k].onClick({ preventDefault() {}, stopPropagation() {}, target: btn, currentTarget: btn, nativeEvent: new w.MouseEvent('click'), persist() {} }); else (btn.shadowRoot && btn.shadowRoot.querySelector('button') || btn).click() };
+    fire();
+    for (let i = 0; i < 45; i++) {
+      await sl(1000); const t = w.document.body.innerText;
+      if (/Changes submitted/.test(t)) return 'OK ' + n;
+      if (/There (was|were) (a |an )?(problem|error)|failed|could not/i.test(t)) return 'ERR ' + (t.match(/.{0,80}(problem|error|failed|could not).{0,100}/i) || [''])[0];
+      const posts = (w.__NET || []).filter(x => x[0] == 'POST' && /abis|listing|image/i.test(x[1]));
+      if (posts.some(x => x[2] >= 200 && x[2] < 300) && i > 8) return 'OK-NET ' + n;
+      if (i == 15 && !posts.length) fire();
+    }
+    return 'NOCONFIRM ' + JSON.stringify((w.__NET || []).slice(-3)).slice(0, 150);
   };
 })();
 'gal ok';
