@@ -20,9 +20,17 @@ window.__apFlow = window.__apFlow || {};
     const after = w.hbAll('*').filter(e => e.children.length === 0 && /الضغط لإضافة صورة/.test(e.textContent) && e.offsetWidth > 0).length;
     return after > before ? 'ok' : 'noadd ' + before + '>' + after;
   };
+  F.brand = async () => {
+    const w = window.__f2; const pi = w.hbAll('kat-predictive-input').filter(e => e.offsetWidth > 0)[0]; if (!pi) return 'nopi';
+    const inp = (pi.shadowRoot && pi.shadowRoot.querySelector('input')) || pi.querySelector('input'); if (!inp) return 'noinp';
+    inp.focus(); w.document.execCommand('insertText', false, 'HABBAA'); inp.dispatchEvent(new w.Event('input', { bubbles: true, composed: true })); await sl(2500);
+    const opt = w.hbAll('*').filter(e => e.offsetWidth > 0 && e.children.length === 0 && (e.textContent || '').trim() === 'HABBAA' && e !== inp)[0];
+    if (!opt) return 'noopt'; if (!react(w, opt)) opt.click(); ['mousedown', 'mouseup', 'click'].forEach(t => opt.dispatchEvent(new w.MouseEvent(t, { bubbles: true, composed: true }))); await sl(1200);
+    return 'ok';
+  };
   F.build = async (name, mods) => {
     const w = window.__f2; const log = [];
-    w.hbType(w.hb2Name(), name); await sl(500);
+    w.hbType(w.hb2Name(), name); await sl(500); log.push('b:' + await F.brand());
     for (const [d, m, alt] of mods) {
       const a = await F.addModule(); log.push('m:' + a); if (a !== 'ok') return log.join(' ');
       const r = await window.__apImg(w, d, m, alt); log.push('i:' + r); if (r !== 'ok') return log.join(' ');
