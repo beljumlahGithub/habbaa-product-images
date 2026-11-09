@@ -112,8 +112,16 @@ window.__G = window.__G || {};
     }
     await sl(2000);
     const bs = [...w.document.querySelectorAll('#EditSaveAction')]; const btn = bs.find(e => e.getBoundingClientRect().width > 0) || bs[bs.length - 1];
-    if (!btn) return 'NOBTN'; btn.scrollIntoView({ block: 'center' }); await sl(600); (btn.shadowRoot && btn.shadowRoot.querySelector('button') || btn).click();
-    for (let i = 0; i < 10; i++) { await sl(4000); const now = await __getImgs(a, sku); const added = free.slice(0, n).filter(k => now[k]).length; if (added >= n) return 'OK ' + added; if (i == 9) return 'PARTIAL ' + added + '/' + n }
+    if (!btn) return 'NOBTN'; btn.scrollIntoView({ block: 'center' }); await sl(600);
+    return await G.save(w, btn, n);
+  };
+  G.save = async (w, btn, n) => {
+    const sl = ms => new Promise(r => setTimeout(r, ms));
+    const k = Object.keys(btn).find(k => k.startsWith('__reactEventHandlers') || k.startsWith('__reactProps'));
+    if (k && btn[k].onClick) btn[k].onClick({ preventDefault() {}, stopPropagation() {}, target: btn, currentTarget: btn, nativeEvent: new w.MouseEvent('click'), persist() {} });
+    else (btn.shadowRoot && btn.shadowRoot.querySelector('button') || btn).click();
+    for (let i = 0; i < 40; i++) { await sl(1000); const t = w.document.body.innerText; if (/Changes submitted/.test(t)) return 'OK ' + n; if (/There (was|were) (a |an )?(problem|error)|failed|could not/i.test(t)) return 'ERR ' + (t.match(/.{0,80}(problem|error|failed|could not).{0,100}/i) || [''])[0] }
+    return 'NOCONFIRM';
   };
 })();
 'gal ok';
