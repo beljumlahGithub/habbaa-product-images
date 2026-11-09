@@ -60,7 +60,7 @@ window.__AP = window.__AP || {};
     cat.f.forEach((t, i) => { const Y = 70 + i * 92; rr(y, 15, Y, 570, 78, 16, C.white); y.beginPath(); y.arc(555, Y + 39, 11, 0, Math.PI * 2); y.fillStyle = C.acc; y.fill(); rt(y, t, 533, Y + 48, 22, 700, C.ink) });
     return [await blob(d), await blob(m)];
   };
-  P.short = (t) => { let s = window.__G.short(t); s = s.replace(/بوكس/g, 'علبة').replace(/اكسسوارات|إكسسوارات/g, 'مستلزمات').replace(/المقبض|مقبض/g, 'المسكة'); s = s.split(' ').slice(0, 4).join(' '); while (P.bad(s) && s.includes(' ')) s = s.split(' ').slice(0, -1).join(' '); return P.bad(s) ? '' : s };
+  P.short = (t) => { let s = window.__G.short(t); s = s.replace(/بوكس ورقي(?!ة)/g, 'علبة ورقية').replace(/بوكس/g, 'علبة').replace(/اكسسوارات|إكسسوارات/g, 'مستلزمات').replace(/المقبض|مقبض/g, 'المسكة'); s = s.replace(/بوكس ورقي\b/g, 'علبة ورقية'); let ws = s.split(' ').slice(0, 4); while (ws.length > 2 && /^(لون|مع|من|مقاسات|مقاس|ذات|و|ب|في|عدد|حجم)$/.test(ws[ws.length - 1])) ws.pop(); s = ws.join(' '); while (P.bad(s) && s.includes(' ')) s = s.split(' ').slice(0, -1).join(' '); return P.bad(s) ? '' : s };
   P.checkCat = (cat) => [cat.h, cat.s, ...cat.f, 'منتجات مختارة بعناية من هبة', 'من تشكيلة ' + cat.h, 'لماذا تختار هبة؟'].map(P.bad).filter(Boolean);
 })();
 'aplus ok';
