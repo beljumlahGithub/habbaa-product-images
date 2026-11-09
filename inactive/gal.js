@@ -82,6 +82,18 @@ window.__G = window.__G || {};
     const n = m[1]; if (+n < 2 || +n > 5000) return '';
     return rtl ? ('عبوة من ' + n + (m[2] ? ' ' + m[2] : ' قطع')) : ('Pack of ' + n);
   };
+  G.closer = async (bm, rtl, sub) => {
+    const [c, x] = canvas(); header(x, rtl, rtl ? 'نظرة أقرب' : 'A Closer Look', sub);
+    rr(x, 70, 340, S - 140, 1590, 44, PANEL);
+    const t = document.createElement('canvas'); t.width = bm.width; t.height = bm.height; const tx = t.getContext('2d'); tx.fillStyle = '#fff'; tx.fillRect(0, 0, t.width, t.height); tx.drawImage(bm, 0, 0);
+    const d = tx.getImageData(0, 0, t.width, t.height).data; let x0 = t.width, y0 = t.height, x1 = 0, y1 = 0;
+    for (let y = 0; y < t.height; y += 3) for (let i = 0; i < t.width; i += 3) { const k = (y * t.width + i) * 4; if (Math.min(d[k], d[k + 1], d[k + 2]) < 236) { if (i < x0) x0 = i; if (i > x1) x1 = i; if (y < y0) y0 = y; if (y > y1) y1 = y } }
+    if (x1 <= x0) { x0 = 0; y0 = 0; x1 = t.width - 1; y1 = t.height - 1 }
+    const cw = (x1 - x0) * 0.62, ch = (y1 - y0) * 0.62, cx0 = x0 + (x1 - x0 - cw) / 2, cy0 = y0 + (y1 - y0 - ch) / 2;
+    const bw = S - 260, bh = 1470; const r = Math.min(bw / cw, bh / ch, 3.2); const w2 = cw * r, h2 = ch * r;
+    x.save(); x.beginPath(); x.roundRect(70, 340, S - 140, 1590, 44); x.clip(); x.imageSmoothingQuality = 'high'; x.drawImage(t, cx0, cy0, cw, ch, (S - w2) / 2, 340 + (1590 - h2) / 2, w2, h2); x.restore();
+    return toBlob(c);
+  };
   G.sent = (d) => String(d || '').replace(/<[^>]+>/g, ' ').split(/(?<=[.!؟?])\s+/).map(s => s.trim()).filter(s => s.length > 25 && s.length < 220);
   G.make = async (imgUrl, title, bullets, lang, desc) => {
     const rtl = /^ar/.test(lang); const bm = await G.loadImg(imgUrl); const sub = G.short(title); const B = bullets.map(G.cleanB).filter(Boolean);
@@ -93,7 +105,8 @@ window.__G = window.__G || {};
     const seen = new Set(); rows = rows.filter(r => { const k = r.slice(0, 30); if (seen.has(k)) return false; seen.add(k); return true });
     if (rows.length < 2) rows = B.slice(0, 3);
     const d = await G.details(bm, rtl, sub, rows.slice(0, 4));
-    return [f, g, d];
+    const cl = await G.closer(bm, rtl, sub);
+    return [f, g, d, cl];
   };
   // upload blobs into empty PT slots on the classic images page, one save
   G.upload = async (a, sku, blobs) => {
