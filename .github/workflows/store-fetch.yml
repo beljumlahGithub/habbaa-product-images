@@ -1,0 +1,25 @@
+name: store-fetch
+on:
+  push:
+    paths: ['store/urls.txt']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p store/src
+          while read a f; do
+            [ -z "$a" ] && continue
+            curl -sSfL "https://m.media-amazon.com/images/I/$f" -o "store/src/$a.jpg" || echo "fail $a"
+          done < store/urls.txt
+          ls -la store/src
+      - run: |
+          git config user.name "store-bot"
+          git config user.email "store-bot@users.noreply.github.com"
+          git add store/src
+          git commit -m "store: fetch product images" || echo nothing
+          git push
