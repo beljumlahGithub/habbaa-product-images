@@ -155,5 +155,97 @@
   ],
   "bags": "14 (see earlier log)",
   "cups": "4 (see earlier log)"
+ },
+ "batch5_2026_11_23": {
+  "en_reuse": {
+   "manicure7EN": [
+    "B0GRRGYSPV",
+    "B0GRRHSMF4"
+   ],
+   "stopperEN": [
+    "B0FG8HQ7G4"
+   ],
+   "smallscissorsEN": [
+    "B0GWYBYW48",
+    "B0GZW49GPK"
+   ],
+   "d3-bathEN(hero+uses)": [
+    "B0H1NG1GGC",
+    "B0D9NZFQYB",
+    "B0D9P111PQ",
+    "B0FFHG94Q7",
+    "B0FLWNNF81"
+   ],
+   "d9-playEN(uses+feat)": [
+    "B0DCZY4SWH",
+    "B0HM3WB822",
+    "B0FR4NRL39"
+   ]
+  },
+  "d19_new": {
+   "ribbon AR+EN": 10,
+   "home AR": 7,
+   "home EN": 9,
+   "party AR": 4,
+   "party EN": 1
+  },
+  "skipped_other_brand": {
+   "Star Decor banners": [
+    "B0FBLX8NN3",
+    "B0FBLW81Q5",
+    "B0FBLVHXF2",
+    "B0FBLX2JQW",
+    "B0FBLW6Z7B",
+    "B0FBLZMT5R",
+    "B0GXZFJDWM",
+    "B0FBLYDBVD"
+   ],
+   "Yaofan balloons": [
+    "B0F8HPPRC2"
+   ],
+   "Staedtler pencils": [
+    "B0FLWNQL8Y",
+    "B0FM8HB22G",
+    "B0FM8FBZC8"
+   ],
+   "Xiaomili sharpeners": [
+    "B0GWXXSXVG",
+    "B0GWXXKJD9",
+    "B0GWY45ZMJ"
+   ],
+   "Nasif eraser": [
+    "B0GWY3YT72"
+   ],
+   "DOMS marker": [
+    "B0FG8HSBN6"
+   ],
+   "Everbond tape": [
+    "B0DCDHCJWX",
+    "B0DCD72FZH"
+   ],
+   "Bella beads": [
+    "B0DFV3C6FD"
+   ],
+   "Torch charcoal": [
+    "B0G2T22LH7"
+   ],
+   "unclear brand thread/buttons": [
+    "B0FR4HCWDG",
+    "B0FLWMSSDC"
+   ],
+   "IKEA name": [
+    "B01DSWKH9U"
+   ],
+   "rainbow sharpener": [
+    "B0FR4VM15B"
+   ],
+   "Generic ND brooch": [
+    "B0FMQ6PG8T"
+   ]
+  },
+  "blocked_words_found": [
+   "trimming (rimming)",
+   "جماعية (جماع)"
+  ]
  }
 }
