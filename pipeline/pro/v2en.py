@@ -70,8 +70,8 @@ def inpaint_text(im, box):
     return Image.fromarray(r)
 
 
-def hero(key, c):
-    im = Image.open(f'{AP}/{key}-1-hero-desktop.jpg').convert('RGB')
+def hero(key, c, mod='1-hero'):
+    im = Image.open(f'{AP}/{key}-{mod}-desktop.jpg').convert('RGB')
     a0 = np.asarray(im).astype(int)
     strip = a0[:, 1440:1464].reshape(-1, 3)
     if strip.std(axis=0).max() < 4 and np.abs(strip.mean(axis=0) - np.array([247, 245, 241])).max() < 6:
@@ -88,8 +88,8 @@ def hero(key, c):
     for ln in c['sub']:
         ltext(d, x0, y, ln, fit(d, ln, 'Medium', 31, mx), SUB); y += 46
     d.rectangle((x0, y + 30, x0 + 90, y + 36), fill=ACC)
-    im.save(f'{AP}/{key}EN-1-hero-desktop.jpg', quality=92)
-    m = Image.open(f'{AP}/{key}-1-hero-mobile.jpg').convert('RGB')
+    im.save(f'{AP}/{key}EN-{mod}-desktop.jpg', quality=92)
+    m = Image.open(f'{AP}/{key}-{mod}-mobile.jpg').convert('RGB')
     a = np.asarray(m)
     bg = bgcol(a, [(5, 445), (595, 445), (300, 445)])
     d = ImageDraw.Draw(m)
@@ -99,7 +99,7 @@ def hero(key, c):
     fs = F('Medium', 21); y = 366
     for ln in wrap(d, ' '.join(c['sub']), fs, 536)[:2]:
         ltext(d, 32, y, ln, fs, SUB); y += 32
-    m.save(f'{AP}/{key}EN-1-hero-mobile.jpg', quality=92)
+    m.save(f'{AP}/{key}EN-{mod}-mobile.jpg', quality=92)
 
 
 def bands(a, bg, tol=14):
@@ -185,6 +185,8 @@ def main(key):
     if c['feat']['type'] == 'grid':
         for mob in (False, True):
             grid(key, 3, 'feat', c['feat']['title'], c['feat']['labels'], mob)
+    elif c['feat']['type'] == 'hero':
+        hero(key, c['feat'], '3-feat')
     else:
         flist(key, c['feat'])
     ims = []
