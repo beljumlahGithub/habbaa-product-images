@@ -58,8 +58,8 @@ def inpaint_text(im, box):
     reg = a[y0:y1, x0:x1]
     g = cv2.cvtColor(reg, cv2.COLOR_RGB2GRAY).astype(int)
     bl = cv2.medianBlur(cv2.cvtColor(reg, cv2.COLOR_RGB2GRAY), 41).astype(int)
-    m = (np.abs(g - bl) > 18).astype('uint8') * 255
-    m = cv2.dilate(m, np.ones((9, 9), np.uint8))
+    m = (np.abs(g - bl) > 12).astype('uint8') * 255
+    m = cv2.dilate(m, np.ones((13, 13), np.uint8))
     full = np.zeros(a.shape[:2], np.uint8); full[y0:y1, x0:x1] = m
     r = cv2.inpaint(cv2.cvtColor(a, cv2.COLOR_RGB2BGR), full, 11, cv2.INPAINT_TELEA)
     r = cv2.cvtColor(r, cv2.COLOR_BGR2RGB)
