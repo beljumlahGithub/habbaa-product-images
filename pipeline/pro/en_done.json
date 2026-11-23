@@ -59,7 +59,34 @@
   "d3-sew": 13,
   "d16-home16": 13,
   "d12-kitchen5": 12,
-  "d3-tools": 11
+  "d3-tools": 11,
+  "d13-care6": 11,
+  "d13-kitchen6": 11,
+  "d10-kitchen3": 11,
+  "d3-storage": 10,
+  "d14-kitchen14": 10,
+  "d12-home5": 10,
+  "d1-candles": 10,
+  "d14-care14": 9,
+  "d10-bath3": 9,
+  "d13-party6": 8,
+  "d3-hair": 7,
+  "d13-home6": 7,
+  "d10-tools3": 7,
+  "d9-party": 7,
+  "d3-gift": 7,
+  "d2-pinkv": 7,
+  "d1-towels": 7,
+  "d10-play3": 6,
+  "d3-cables": 6,
+  "d3-kitchenv": 6,
+  "d15-play15": 5,
+  "d11-home4": 5,
+  "d10-party3": 5
  },
- "v2_note": "EN overlay of AR v2 contents: pipeline/pro/v2en.py + en_copy/v2/*.json; editor hb3V2(key+'EN',name) then hb3Finish(asins). ASIN lists: localStorage.enV2 (from ListContentMetadata: ar_AE contents' HABBAA active ASINs lacking en_AE)."
+ "v2_note": "EN overlay of AR v2 contents: pipeline/pro/v2en.py + en_copy/v2/*.json; editor hb3V2(key+'EN',name) then hb3Finish(asins). ASIN lists: localStorage.enV2 (from ListContentMetadata: ar_AE contents' HABBAA active ASINs lacking en_AE).",
+ "v2_skipped": {
+  "d9-play": "rainbow kite hero image (BJ: no rainbow)",
+  "d3-bath": "exfoliating glove shows 'fine lines' tag (possible other brand)"
+ }
 }
