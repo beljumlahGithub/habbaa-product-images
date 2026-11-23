@@ -50,5 +50,16 @@
   "Toilet Odour Stopper 8 cm EN Pro",
   "Small Grooming Scissors EN Pro"
  ],
- "note": "EN done earlier (2026-11-23): cardholdEN, a4paper, waraq, kitchenscissors, smallscissors, stopper, swabs, basketball, numcandles, hijabpins, scrubglove"
+ "note": "EN done earlier (2026-11-23): cardholdEN, a4paper, waraq, kitchenscissors, smallscissors, stopper, swabs, basketball, numcandles, hijabpins, scrubglove",
+ "v2_done": {
+  "d15-home15": 15,
+  "d1-balloons": 23,
+  "d12-party5": 14,
+  "d10-home3": 14,
+  "d3-sew": 13,
+  "d16-home16": 13,
+  "d12-kitchen5": 12,
+  "d3-tools": 11
+ },
+ "v2_note": "EN overlay of AR v2 contents: pipeline/pro/v2en.py + en_copy/v2/*.json; editor hb3V2(key+'EN',name) then hb3Finish(asins). ASIN lists: localStorage.enV2 (from ListContentMetadata: ar_AE contents' HABBAA active ASINs lacking en_AE)."
 }
