@@ -44,7 +44,12 @@
   "waterballoons",
   "elasticcord",
   "plasticcombs",
-  "needles"
+  "needles",
+  "manicure7",
+  "stairscart",
+  "dice",
+  "confetti30",
+  "EXGLOVE"
  ],
  "pending_drafts": [
   "Toilet Odour Stopper 8 cm EN Pro",
@@ -88,5 +93,67 @@
  "v2_skipped": {
   "d9-play": "rainbow kite hero image (BJ: no rainbow)",
   "d3-bath": "exfoliating glove shows 'fine lines' tag (possible other brand)"
+ },
+ "batch4_2026_11_23": {
+  "v2_contents": 26,
+  "v2_asins": 93,
+  "old_families": {
+   "bags": 3,
+   "cups": 23,
+   "caps": [
+    "B0HP6K3HTR",
+    "B0HP6G7ZWH",
+    "B0HP6G1KFN"
+   ],
+   "brooches": [
+    "B0HP6GW2ZH",
+    "B0HP6RCCSG",
+    "B0HP6VBFNG",
+    "B0HP71CFTN"
+   ],
+   "bottles": [
+    "B0HP71JHW4",
+    "B0HP6MLC8J",
+    "B0HP6MDCXB"
+   ]
+  },
+  "laundry": [
+   "B0CXRGZ58Q"
+  ],
+  "pro_singles": [
+   "B0GR149XWB",
+   "B0GQZTMWFB",
+   "B0FVF7MQLG",
+   "B0F92HJBVV",
+   "B0F8QM9JGJ"
+  ]
+ },
+ "brand_error_asins": {
+  "note": "Amazon rejects EN A+: brand not recognised (asin permissions check). Needs catalog brand fix / Brand Registry.",
+  "caps": [
+   "B0HP6MP2FK",
+   "B0HP7T8FH1",
+   "B0HP7ZHS7V",
+   "B0HP7JXQX1"
+  ],
+  "brooches": [
+   "B0HP6Y48J8",
+   "B0HP71DQ2C"
+  ],
+  "pens": [
+   "B0HP7T1VDD",
+   "B0HP7XTT2W",
+   "B0HP7SBQS8",
+   "B0HP7VVHS7",
+   "B0HP7MJ4V9",
+   "B0HP7TSBQ2",
+   "B0HP81VXJZ",
+   "B0HP81L8BS"
+  ],
+  "balloons": [
+   "B0HP81TN9C"
+  ],
+  "bags": "14 (see earlier log)",
+  "cups": "4 (see earlier log)"
  }
 }
