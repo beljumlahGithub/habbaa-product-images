@@ -9,4 +9,4 @@ for f in sys.argv[1:]:
     print('##',f)
     for i,k in enumerate(['hero','feat','steps','uses','specs']):
         p=f'{D}/{f}-{i+1}-{k}-desktop.jpg'
-        if os.path.exists(p): print(k.upper(),o(Image.open(p).crop(BOX[k]))[:420])
+        if os.path.exists(p): print(k.upper(),o(Image.open(p).crop(BOX[k]))[:300])
