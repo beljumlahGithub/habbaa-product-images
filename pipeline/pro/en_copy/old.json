@@ -1,0 +1,26 @@
+{
+"bags":[
+ {"src":"bags-1-BAG","head":["Polyester Drawstring","Bags 31 x 40 cm"],"lines":["Light bag with drawstring cords","For gym, school, trips and giveaways","Available in several colours"]},
+ {"src":"bags-2-BAG","head":["Everyday Drawstring","Backpack Bags"],"lines":["Size 31 x 40 cm","Easy to pull closed and carry","Great as event and company giveaways"]},
+ {"src":"bags-3-BAGR","head":["Drawstring Bags with","Reinforced Corners"],"lines":["Reinforced corners for daily use","Polyester, 31 x 40 cm","For sport, shoes and school"]},
+ {"src":"bags-4-CRK","head":["Cotton Canvas Bag","with Cork Base"],"lines":["Size 38 x 41 cm","Natural canvas look with cork base","For gym, outings and everyday use"]}],
+"pens":[
+ {"src":"pens-1-CLICK","head":["Push Button","Ballpoint Pens"],"lines":["White body with blue ink","Size 147 x 11 mm","For offices, schools and events"]},
+ {"src":"pens-2-CLICK","head":["White Ballpoint Pens","with Coloured Details"],"lines":["Push button, blue ink","Smooth everyday writing","Popular as advertising pens"]},
+ {"src":"pens-3-TWIST","head":["White Rollerball","Pens, Blue Ink"],"lines":["Size 140 x 11 mm","Comfortable slim grip","For offices, conferences and giveaways"]},
+ {"src":"pens-4-TWIST","head":["Advertising Pens","for Every Event"],"lines":["White body with coloured accents","Blue ink","Order in quantity for your events"]}],
+"caps":[
+ {"src":"caps-1-CAP","head":["Plain Baseball Caps","in Several Colours"],"lines":["For men and women","For sport, outings and teams","Plain front for everyday wear"]},
+ {"src":"caps-2-CAP2","head":["White Satin Caps","with Coloured Brim"],"lines":["White crown with a coloured brim","For men and women","For sport, trips and events"]}],
+"brooches":[
+ {"src":"brooches-1-MAP","head":["Saudi Map","Magnetic Brooch"],"lines":["Green or white with gold frame","Size 4.4 cm","Magnet back, no pin holes"]},
+ {"src":"brooches-2-FLAG","head":["Magnetic Flag","Brooch"],"lines":["Green with gold or silver frame","Size 4 x 3.2 cm","For national occasions and events"]},
+ {"src":"brooches-3-2FLAG","head":["Double Flag","Magnetic Brooch"],"lines":["Gold frame, 4 cm","Several colours","Attaches to dress and jacket"]},
+ {"src":"brooches-4-RECT","head":["Rectangle","Magnetic Brooch"],"lines":["Green with gold frame","Size 4 x 3 cm","Magnet back for easy wear"]}],
+"bottles":[
+ {"src":"bottles-1-B500S","head":["Steel Water Bottle","500 ml"],"lines":["Metal lid with steel base","For gym, office and trips","Plain surface for daily use"]},
+ {"src":"bottles-2-B500W","head":["Steel Bottle with","Wooden Lid, 500 ml"],"lines":["Wooden lid with carry handle","Wooden base","For sport, office and outings"]},
+ {"src":"bottles-3-B600C","head":["Steel Water Bottle","600 ml"],"lines":["Wooden lid","Carabiner clip for your bag","For sport, trips and hiking"]}],
+"balloons":[
+ {"src":"balloons-1-BALLOON","head":["White Latex","Balloons, 120 Pieces"],"lines":["Solid white colour","For parties and decorations","Easy to inflate"]}]
+}
