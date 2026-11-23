@@ -8,3 +8,10 @@
 4. Editor (see pipeline/pro/README.md): new Premium content, language English, `hb3Mods('<fam>EN', 'HABBAA <Name> EN Pro')`,
    `hb3Brand()` + real click (1420,433), `hb3Finish(asins)`; wait for END before navigating away.
 5. Content edit pages of submitted drafts freeze the tab — do not open them; close frozen tabs and open a new tab.
+
+## Queue / state
+- `en_queue.json`: Pro AR families → active ASINs with no English A+ (built 2026-11-23). `EXGLOVE` = B0GR149XWB, reuse `scrubgloveEN` images.
+- `en_done.json`: families finished. Skip them. Add each finished family.
+- After the Pro queue: older AR v2 contents (aplus/dN-*, template in pipeline/aplus_lib.py, 3 modules hero/uses/feat) need an overlay like en_overlay.py.
+- Then Arabic Pro A+ for active HABBAA ASINs with no ar_AE content (mostly out of stock). Skip products showing another brand (BJ: "اللي عليه براند تاني لا").
+- Seller Central tab freezes often: close frozen tabs, use a fresh tab, keep JS calls short.
