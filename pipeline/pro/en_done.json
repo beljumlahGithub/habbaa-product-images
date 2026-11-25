@@ -247,5 +247,72 @@
    "trimming (rimming)",
    "جماعية (جماع)"
   ]
+ },
+ "batch6_2026_11_25": {
+  "en": {
+   "bottlesEN": [
+    "B0HP6RP13G",
+    "B0HP6SMF7C",
+    "B0HP6SLF5L",
+    "B0HP6W7T4F",
+    "B0HP6MK8B9"
+   ],
+   "bagsEN": [
+    "B0HP849S3M",
+    "B0HP8C2M72",
+    "B0HP8F8CNY",
+    "B0HP89Z597"
+   ],
+   "d19-homeEN": [
+    "B0HP6QS4G3",
+    "B0HRZS7CJC",
+    "B0H1NJYB5Z",
+    "B0FLDHGSGZ"
+   ],
+   "d3-bathEN": [
+    "B0HRZXZJGR",
+    "B0HRZYDK2V",
+    "B0HRZH75MZ"
+   ],
+   "d9-playEN": [
+    "B0F8JDNMHV"
+   ],
+   "d19-partyEN": [
+    "B0D7VN2LPQ"
+   ],
+   "d19-ribbonEN": [
+    "B0HR5MSTQF"
+   ],
+   "d19-ribbon5EN": 9,
+   "d20-pinsEN": 3
+  },
+  "ar": {
+   "d19-ribbon": [
+    "B0HR5MSTQF"
+   ],
+   "d19-home": 4,
+   "d3-bath": 2,
+   "d19-party": [
+    "B0D7VN2LPQ"
+   ],
+   "d19-ribbon5": 9,
+   "d20-pins": 3
+  },
+  "brand_error_bags": [
+   "B0HP89YTYN",
+   "B0HP8BSS9T",
+   "B0HP8KGJD8"
+  ],
+  "no_listing_data": [
+   "B0DFV2ZKCC",
+   "B0CJFSMSSJ",
+   "B0GRSG8QPY",
+   "B0GRS28MTH",
+   "B0GRRRL1G2",
+   "B0GYQ535Y1"
+  ],
+  "blocked_words_found": [
+   "والعناية (لعن)"
+  ]
  }
 }
